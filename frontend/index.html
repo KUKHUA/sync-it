@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>sync-it</title>
+    <script type="module" src="index.js"></script>
+    <link rel="stylesheet" href="/lib/css/beer.min.css" />
+  </head>
+
+  <body>
+    <main class="responsive">
+      <div>
+        <nav class="tabbed">
+          <a class="active" data-ui="#setup">
+            <i>handshake</i>
+            <span>Setup</span>
+          </a>
+
+          <a data-ui="#devices">
+            <i>devices_other</i>
+            <span>Devices</span>
+          </a>
+
+          <label class="switch icon medium margin-left">
+            <input type="checkbox" id="darkModeSwitch" />
+            <span>
+              <i>dark_mode</i>
+            </span>
+          </label>
+        </nav>
+        
+        <dialog id="start-session">
+          <h5>Starting a session...</h5>
+          <div>Please enter the following code or scan the QR code on the other device.</div>
+          
+          <article class="border no-padding center-align middle-align">
+            <div class="padding">
+              <h3>ABC123</h2>
+              <img src="https://upload.wikimedia.org/wikipedia/commons/d/d0/QR_code_for_mobile_English_Wikipedia.svg">
+            </div>
+          </article>
+
+
+          <nav class="right-align no-space">
+            <button class="transparent link">Cancel</button>
+          </nav>
+        </dialog>
+
+        <dialog id="join-session">
+          <h5>Join a session</h5>
+          <div>Please enter the code or scan the QR code displayed on the other device.</div>
+
+          <div class="field label prefix border">
+            <i>script</i>
+            <input type="text">
+            <label>Type in the code</label>
+          </div>
+
+          <p class="middle-align center-align">OR</p>
+          <br>
+
+          <button class="responsive small-round">
+            <i>qr_code_scanner</i>
+            <span>Scan QR Code</span>
+          </button>
+
+          <nav class="right-align no-space">
+            <button class="transparent link" data-ui="#join-session">Cancel</button>
+            <button class="transparent link">Confirm</button>
+          </nav>
+        </dialog>
+
+
+        <div class="page padding active" id="setup">
+          <article class="medium middle-align center-align">
+            <div>
+              <i class="extra">handshake</i>
+
+              <h5>Share text, files, and clipboard across your devices.</h5>
+              <p>
+                Click the button to start a session, then join from another
+                device to share content in real time.
+              </p>
+              <div class="space"></div>
+
+              <nav class="center-align">
+                <button data-ui="#start-session">Start a session</button>
+                <button class="border round" data-ui="#join-session">Join a session</button>
+              </nav>
+            </div>
+          </article>
+        </div>
+
+        <div class="page padding" id="devices">
+
+          <article class="small">
+              
+              <div class="row tiny-margin">
+                <i class="large">laptop_windows</i>
+                <h5>HP Laptop</h5>
+                
+              </div>
+
+              <div class="grid">
+                <div class="left-align s6">
+                  <button class="chip round small tiny-margin">
+                    <i>battery_charging_80</i>
+                    <span>80%, 20 until full</span>
+                  </button>
+
+                  <br>
+
+                  <button class="chip round small tiny-margin">
+                    <i>globe</i>
+                    <span>Kent, Ohio</span>
+                  </button>
+
+                  <br>
+
+                  <button class="chip round small tiny-margin">
+                    <i>network_ping</i>
+                    <span>Last seen 5 seconds ago</span>
+                  </button>
+                </div>
+
+                <div class="right-align s6">
+                  <button class="chip round medium tiny-margin primary">
+                    <i>content_paste_go</i>
+                    <span>Send clipboard</span>
+                  </button>
+                  <br>
+
+                  <button class="chip round medium tiny-margin primary">
+                    <i>attach_file</i>
+                    <span>Upload File</span>
+                  </button>
+                  
+                </div>
+
+              </div>
+              
+          </article>
+
+        </div>
+
+      </div>
+    </main>
+  </body>
+</html>
