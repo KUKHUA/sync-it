@@ -4,6 +4,7 @@ public class Main {
       public static void main(String[] args) {
         http server = new http(8000);
         server.start();
-        server.addHandler("/", new SSEConnect());
+        server.addHandler("/stream/channel", new SSEConnect());
+        server.addHandler("/send/channel", new SSESend());
     }
 }
