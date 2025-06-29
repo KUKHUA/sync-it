@@ -27,7 +27,7 @@ import java.net.InetSocketAddress;
  * The {@code http} class provides a simple HTTP server implementation using the HttpServer class.
  * It allows starting the server on a specified port and adding custom handlers for different paths.
  */
-public class http {
+public final class http {
 
     int port;
     HttpServer server;
