@@ -65,18 +65,19 @@ public final class SSESend implements HttpHandler {
                 return;
             }
 
-            //Middleware.returnWithString(Middleware.bodyAsString(exchange), 200, exchange, "idk");
             List<HttpExchange> clients = ClientStore.get().getChannelClients(channel);
             String requestBody = Middleware.bodyAsString(exchange);
+            int disconnectedClients = 0;
             for(HttpExchange client : clients){
-                Middleware.sseWithString(requestBody, client);
+                if(!Middleware.sseWithString(requestBody, client))
+                    disconnectedClients++;
             }
 
             JSONObject outerObject = new JSONObject();
 
             JSONObject dataObject = new JSONObject();
-            dataObject.put("successfulClients", 1);
-            dataObject.put("disconnectedCleints", 0);
+            dataObject.put("successfulClients", clients.size() - disconnectedClients);
+            dataObject.put("disconnectedCleints", disconnectedClients);
 
             JSONObject packetObject = new JSONObject();
             packetObject.put("type", "status_report");

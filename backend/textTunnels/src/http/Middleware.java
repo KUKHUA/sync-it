@@ -43,17 +43,19 @@ public final class Middleware {
         }
     }
 
-    public static void sseWithString(String data, HttpExchange exchange){
+    public static boolean sseWithString(String data, HttpExchange exchange){
         String sseData = "data: " + data + "\n\n";
 
-        byte[] errorBytes = sseData.getBytes();
+        byte[] dataBytes = sseData.getBytes();
         OutputStream os = exchange.getResponseBody();
         try {
-            os.write(errorBytes);
+            os.write(dataBytes);
             os.flush();
         } catch (Exception err){
-
+            return false;
         }
+
+        return true;
     }
 
     public static String bodyAsString(HttpExchange exchange){
