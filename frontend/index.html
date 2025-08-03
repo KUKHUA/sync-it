@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>sync-it</title>
     <script type="module" src="./index.js"></script>
+    <script src="./lib/js/qrcode.js"></script>
     <link rel="stylesheet" href="./lib/css/beer.min.css" />
   </head>
 
@@ -34,10 +35,10 @@
           <h5>Starting a session...</h5>
           <div>Please enter the following code or scan the QR code on the other device.</div>
           
-          <article class="border no-padding center-align middle-align">
-            <div class="padding">
-              <h3>ABC123</h2>
-              <img src="https://upload.wikimedia.org/wikipedia/commons/d/d0/QR_code_for_mobile_English_Wikipedia.svg">
+          <article class="no-padding center-align middle-align medium">
+            <div>
+              <h3 id="codeText" class="padding primary">ABC123</h2>
+              <img id="qrCodeImage" class="padding">
             </div>
           </article>
 
@@ -45,7 +46,7 @@
           <nav class="right-align no-space">
             <button class="transparent link">Cancel</button>
           </nav>
-        </dialog>
+        </dialog> 
 
         <dialog id="join-session">
           <h5>Join a session</h5>
@@ -85,7 +86,7 @@
               <div class="space"></div>
 
               <nav class="center-align">
-                <button data-ui="#start-session">Start a session</button>
+                <button data-ui="#start-session" id="startButton">Start a session</button>
                 <button class="border round" data-ui="#join-session">Join a session</button>
               </nav>
             </div>

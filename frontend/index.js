@@ -1,6 +1,11 @@
-import DarkModeSwitch from "./global/js/DarkModeSwitch.js";
+import DarkModeSwitch from "./global/js/ui/DarkModeSwitch.js";
+import StartSession from "./global/js/ui/StartSession.js";
 import TextTunnel from "./global/js/TextTunnel/TextTunnel.js";
-const darkMode = new DarkModeSwitch(document.getElementById("darkModeSwitch"));
+
+// Setup UI interactions.
+new DarkModeSwitch("darkModeSwitch");
+new StartSession("startButton", "qrCodeImage", "codeText");
+
 
 const eventSource = new EventSource("http://127.0.0.1:1337");
 eventSource.onmessage = function (event) {
