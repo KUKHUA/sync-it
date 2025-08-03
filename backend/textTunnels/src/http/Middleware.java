@@ -13,6 +13,9 @@ import java.nio.charset.StandardCharsets;
 public final class Middleware {
     public static void returnWithString(String error, int httpStatus, HttpExchange exchange, String contentType){
         Headers headers = exchange.getResponseHeaders();
+        headers.set("Access-Control-Allow-Origin", "*");
+        headers.set("Access-Control-Allow-Methods", "*");
+        headers.set("Access-Control-Allow-Headers", "*");
         headers.set("Content-Type", contentType);
 
         byte[] errorBytes = error.getBytes();
@@ -29,6 +32,9 @@ public final class Middleware {
 
     public static void returnWithString(String error, int httpStatus, HttpExchange exchange){
         Headers headers = exchange.getResponseHeaders();
+        headers.set("Access-Control-Allow-Origin", "*");
+        headers.set("Access-Control-Allow-Methods", "*");
+        headers.set("Access-Control-Allow-Headers", "*");
         headers.set("Content-Type", "application/json; charset=UTF-8");
 
         byte[] errorBytes = error.getBytes();

@@ -4,7 +4,7 @@ export default class DarkModeSwitch {
   constructor(checkBoxElement) {
     this.#checkBoxElement = checkBoxElement;
     if (localStorage["darkMode"]) ui("mode", localStorage["darkMode"]);
-    // Set the initial state of the checkbox based on the current mode
+    
     this.#checkBoxElement.checked = ui("mode") === "dark";
 
     this.#checkBoxElement.addEventListener("change", this.#onChange.bind(this));
